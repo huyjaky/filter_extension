@@ -5,18 +5,10 @@ This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with
 First, run the development server:
 
 ```bash
-nvm use 18 (if u guys have this if dont pls go install it nvm)
-```
-
-Change linux to windown or another type idk gg is free mate 
-```bash
-npm install --platform=linux --arch=x64 sharp 
-
 pnpm dev
 # or
 npm run dev
 ```
-Dont try below docs that shit and ill eat later 
 
 Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
 

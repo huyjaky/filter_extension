@@ -1,28 +1,32 @@
+import React, { useState } from 'react';
 import { sendToBackground } from "@plasmohq/messaging";
 
 import "~style.css";
+import LoginPage from "./pages/Login";
+import Header from "./components/Header";
+import Options from "./pages/Options";
 
 function IndexPopup() {
-	return (
-		<div className="plasmo-flex plasmo-items-center plasmo-justify-center plasmo-h-16 plasmo-w-40 plasmo-flex-col plasmo-space-y-4">
-			<div className="plasmo-flex plasmo-flex-row">
-				<p>Version:</p>
-				<p>
-					{new Date()
-						.toLocaleDateString("en-US", {
-							year: "numeric",
-							month: "long",
-							day: "numeric"
-						})
-						.toString()}
-				</p>
-			</div>
+  const [showOptions, setShowOptions] = useState(false);
 
-			<div>
-				<button>Click me</button>
-			</div>
-		</div>
-	);
+  const handleLoginSuccess = () => {
+    setShowOptions(true);
+  };
+
+  return (
+    <div style={{ height: '150px', width: '350px', backgroundColor: '#f0f0f0' }}>
+      <div style={{ boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' }}>
+        <Header />
+      </div>
+      <div style={{ padding: '30px', backgroundColor: '#f0f0f0' }}>
+        {!showOptions ? (
+          <LoginPage onLoginSuccess={handleLoginSuccess} />
+        ) : (
+          <Options />
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default IndexPopup;
