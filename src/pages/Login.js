@@ -13,7 +13,8 @@ function Login({ onLoginSuccess }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here
-
+    // NOTE: checkpoint
+    
     // Notify parent component that login was successful
     onLoginSuccess();
   };
