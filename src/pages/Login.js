@@ -28,7 +28,6 @@ function Login({ onLoginSuccess }) {
             value={password}
             onChange={handlePasswordChange}
           />
-          <SwitchField type="text" placeholder="Ngôn ngữ an toàn cho trẻ em" />
           <div style={{ textAlign: 'center' }}>
             <Button type="submit">Đăng nhập</Button>
           </div>

@@ -6,7 +6,7 @@ const SwitchField = ({ type, placeholder, value, onChange, onClick }) => {
   return (
     <div style={{ position: 'relative', marginBottom: '20px' }}>
       <input
-        style={{ padding: '10px 40px 10px 10px', fontSize: '1.2em', border: '1px solid #ccc', borderRadius: '5px', width: '100%', backgroundColor: '#FFFFFF' }}
+        style={{ padding: '10px 40px 10px 10px', fontSize: '1.2em', border: '1px solid #ccc', borderRadius: '5px', width: '100%', backgroundColor: '#FFFFFF', color: 'black' }}
         type={type}
         placeholder={placeholder}
         disabled
