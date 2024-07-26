@@ -6,6 +6,7 @@ import iconVoice from "data-base64:assets/icon-voice.png"
 import logoITV from "data-base64:assets/logo-itv.png"
 import backgroundImg from "data-base64:assets/background.png"
 import { useState, useEffect } from "react";
+import ResultPage from "~pages/Result";
 
 function checkGreyButton(wordDict, selectedText){
 	let check : boolean[] = [true,true,true];
@@ -89,43 +90,46 @@ export default function ResultPopup(props) {
         setContentWord(in4);
         setSelectedButton(type);
     }
-   
+
+    console.log(props.selectedText) // ten chu boi den
+    console.log([wordDict[props.selectedText].verb[0].defination,wordDict[props.selectedText].verb[0].example,wordDict[props.selectedText].verb[0].synonyms])
+
+
 
     return (
-        <div id="result" style={{position: "absolute",top: props.mousePos.y, left: props.mousePos.x, backgroundImage: `url(${backgroundImg})`}} className="container-itv">
-            <div className="header-itv">
-                <div className="word-itv">
-                    <span>{props.selectedText}</span>
-                    <div className="voice-itv">
-                        <img src={iconVoice} alt="Eror img"></img>
-                    </div>
-                </div>
-                <div className="logo-itv">
+        // <div id="result" style={{position: "absolute",top: props.mousePos.y, left: props.mousePos.x, backgroundImage: `url(${backgroundImg})`}} className="container-itv">
+        //     <div className="header-itv">
+        //         <div className="word-itv">
+        //             <span>{props.selectedText}</span>
+        //             <div className="voice-itv">
+        //                 <img src={iconVoice} alt="Eror img"></img>
+        //             </div>
+        //         </div>
+        //         <div className="logo-itv">
                     
-                    <img src={logoITV} alt="Error img" />
-                </div>
-            </div>
-            <div className="typeword-itv">
-                <div style={greyButton[0] === false ? {background:"#d9d9d9", color:"#b8baba"}:{}} className={selectedButton === "noun" ? 'typeword-button-selected-itv' : 'typeword-button-itv'} onClick={greyButton[0]===false?null:()=>handleTypeWord([wordDict[props.selectedText].noun[0].defination,wordDict[props.selectedText].noun[0].example,wordDict[props.selectedText].noun[0].synonyms,wordDict[props.selectedText].noun[0].antonyms,wordDict[props.selectedText].img[0].url],"noun")}>Danh Từ</div>
-                <div style={greyButton[1] === false ? {background:"#d9d9d9", color:"#b8baba"}:{}} className={selectedButton === "verb" ? 'typeword-button-selected-itv' : 'typeword-button-itv'} onClick={greyButton[1]===false?null:()=>handleTypeWord([wordDict[props.selectedText].verb[0].defination,wordDict[props.selectedText].verb[0].example,wordDict[props.selectedText].verb[0].synonyms,wordDict[props.selectedText].verb[0].antonyms,wordDict[props.selectedText].img[0].url],"verb")}>Động Từ</div>
-                <div style={greyButton[2] === false ? {background:"#d9d9d9", color:"#b8baba"}:{}} className={selectedButton === "adj" ? 'typeword-button-selected-itv' : 'typeword-button-itv'} onClick={greyButton[2]===false?null:()=>handleTypeWord([wordDict[props.selectedText].adj[0].defination,wordDict[props.selectedText].adj[0].example,wordDict[props.selectedText].adj[0].synonyms,wordDict[props.selectedText].adj[0].antonyms,wordDict[props.selectedText].img[0].url],"adj")}>Tính Từ</div>
-            </div>
-            <div className="content-itv">
-                <div className="content-text-itv">
-                    <div className="word-explain"><span>Mô tả</span>{contentWord[0]}</div>
-                    <div className="word-example"><span>Ví dụ:</span>{contentWord.length === 0 ? "":contentWord[1].join(", ")}</div>
-                    <div className="syntonym"><span>Đồng nghĩa:</span>{contentWord.length === 0 ? "":contentWord[2].join(", ")}</div>
-                    <div className="antonym"><span>Trái nghĩa</span>{contentWord.length === 0 ? "":contentWord[3].join(", ")}</div>
-                </div>
-                <div className="content-img-itv">
-                    <img style={{ width:"250px" }} src={contentWord[4]} alt="" />
-                </div>
-            </div>
+        //             <img src={logoITV} alt="Error img" />
+        //         </div>
+        //     </div>
+        //     <div className="typeword-itv">
+        //         <div style={greyButton[0] === false ? {background:"#d9d9d9", color:"#b8baba"}:{}} className={selectedButton === "noun" ? 'typeword-button-selected-itv' : 'typeword-button-itv'} onClick={greyButton[0]===false?null:()=>handleTypeWord([wordDict[props.selectedText].noun[0].defination,wordDict[props.selectedText].noun[0].example,wordDict[props.selectedText].noun[0].synonyms,wordDict[props.selectedText].noun[0].antonyms,wordDict[props.selectedText].img[0].url],"noun")}>Danh Từ</div>
+        //         <div style={greyButton[1] === false ? {background:"#d9d9d9", color:"#b8baba"}:{}} className={selectedButton === "verb" ? 'typeword-button-selected-itv' : 'typeword-button-itv'} onClick={greyButton[1]===false?null:()=>handleTypeWord([wordDict[props.selectedText].verb[0].defination,wordDict[props.selectedText].verb[0].example,wordDict[props.selectedText].verb[0].synonyms,wordDict[props.selectedText].verb[0].antonyms,wordDict[props.selectedText].img[0].url],"verb")}>Động Từ</div>
+        //         <div style={greyButton[2] === false ? {background:"#d9d9d9", color:"#b8baba"}:{}} className={selectedButton === "adj" ? 'typeword-button-selected-itv' : 'typeword-button-itv'} onClick={greyButton[2]===false?null:()=>handleTypeWord([wordDict[props.selectedText].adj[0].defination,wordDict[props.selectedText].adj[0].example,wordDict[props.selectedText].adj[0].synonyms,wordDict[props.selectedText].adj[0].antonyms,wordDict[props.selectedText].img[0].url],"adj")}>Tính Từ</div>
+        //     </div>
+        //     <div className="content-itv">
+        //         <div className="content-text-itv">
+        //             <div className="word-explain"><span>Mô tả</span>{contentWord[0]}</div>
+        //             <div className="word-example"><span>Ví dụ:</span>{contentWord.length === 0 ? "":contentWord[1].join(", ")}</div>
+        //             <div className="syntonym"><span>Đồng nghĩa:</span>{contentWord.length === 0 ? "":contentWord[2].join(", ")}</div>
+        //             <div className="antonym"><span>Trái nghĩa</span>{contentWord.length === 0 ? "":contentWord[3].join(", ")}</div>
+        //         </div>
+        //         <div className="content-img-itv">
+        //             <img style={{ width:"250px" }} src={contentWord[4]} alt="" />
+        //         </div>
+        //     </div>
         
+        // </div>
+        <div id="result" style={{position: "absolute",top: props.mousePos.y, left: props.mousePos.x, height: '500px', width: '600px'}}>
+            <ResultPage />
         </div>
     );
 }
-
-
-
-
