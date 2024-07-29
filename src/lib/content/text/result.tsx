@@ -7,6 +7,7 @@ import logoITV from "data-base64:assets/logo-itv.png"
 import backgroundImg from "data-base64:assets/background.png"
 import { useState, useEffect } from "react";
 import ResultPage from "~pages/Result";
+import HanVietPage from "~pages/HanViet";
 
 function checkGreyButton(wordDict, selectedText){
 	let check : boolean[] = [true,true,true];
@@ -129,7 +130,7 @@ export default function ResultPopup(props) {
         
         // </div>
         <div id="result" style={{position: "absolute",top: props.mousePos.y, left: props.mousePos.x, height: '500px', width: '600px'}}>
-            <ResultPage />
+            <HanVietPage />
         </div>
     );
 }
