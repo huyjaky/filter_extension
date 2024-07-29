@@ -14,12 +14,12 @@ const Example = ({textType, TuNgu, ViDu}) => {
                     &middot; {TuNgu ? TuNgu: 'Không có'}
                 </div>
 
-                <div style={{ paddingTop: '5px', fontWeight: 'bold', color: '#FFDB5A' }}>
+                {/* <div style={{ paddingTop: '5px', fontWeight: 'bold', color: '#FFDB5A' }}>
                     + Ví dụ :
                 </div>
                 <div style={{ paddingLeft: '10px', fontWeight: 'bold', color: '#FFFFFF' }}>
                     &middot; {ViDu ? ViDu : 'Không có'}
-                </div>
+                </div> */}
             </div>
         </div>
     );

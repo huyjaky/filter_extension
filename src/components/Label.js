@@ -1,6 +1,6 @@
 import React from "react";
 
-const Label = ({textAlign, text, height, fontSize, alignContent, fontPadding, color, width, paddingLeft, border, backgroundColor, boxShadow, fontWeight}) => {
+const Label = ({textAlign, text, height, fontSize, alignContent, fontPadding, color, width, paddingLeft, border, backgroundColor, boxShadow, fontWeight, cursor}) => {
     return (
         <div style={{
             width: width ? width : '100%',
@@ -16,6 +16,7 @@ const Label = ({textAlign, text, height, fontSize, alignContent, fontPadding, co
             fontWeight: fontWeight ? fontWeight : 'bold',
             fontSize: fontSize ? fontSize : '15px',
             padding: fontPadding,
+            cursor: cursor
         }}>
             {/* <p style={{
                 color: color,
@@ -23,7 +24,7 @@ const Label = ({textAlign, text, height, fontSize, alignContent, fontPadding, co
                 fontSize: fontSize ? fontSize : '15px',
                 padding: fontPadding,
             }}>{text}</p> */}
-            {text}
+            {text ? text : "Không có"}
         </div>
     );
 }
