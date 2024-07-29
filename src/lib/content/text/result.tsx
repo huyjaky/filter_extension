@@ -7,6 +7,7 @@ import logoITV from "data-base64:assets/logo-itv.png"
 import backgroundImg from "data-base64:assets/background.png"
 import { useState, useEffect } from "react";
 import ResultPage from "~pages/Result";
+import HanVietPage from "~pages/HanViet";
 
 function checkGreyButton(wordDict, selectedText) {
     let check: boolean[] = [true, true, true];
