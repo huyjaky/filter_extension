@@ -2,7 +2,7 @@ import React from "react";
 import BTN from "../assets/images/BTNSounds.png";
 import '../components/style/Volume.css';
 
-const Volume = () => {
+const Volume = ({width}) => {
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
             <div style={{}}>
@@ -15,7 +15,7 @@ const Volume = () => {
                 step={0.02} 
                 className="custom-range"
                 style={{ 
-                    width: '180px',
+                    width: width ? width : '180px',
                     height: '20px',
                 }} 
             />
