@@ -1,68 +1,96 @@
-// Highly sensitive code, make sure that you know what you're doing
-// https://stackoverflow.com/a/39332340/10432429
-
 import Request, { IType } from "~lib/Request";
-
 import type IFilter from "./filters/Filter";
 
-// @TODO Canvas and SVG
-// @TODO Lazy loading for div.style.background-image?
-// @TODO <div> and <a>
-// @TODO video
-
-// import { IImageFilter } from "../Filter/ImageFilter"
-
 export type IDOMWatcher = {
-	watch: () => void;
+  watch: () => void;
+  unwatch: () => void;
+  rewatch: () => void;
 };
 
 export default class DOMWatcher implements IDOMWatcher {
-	private readonly observer: MutationObserver;
-	private readonly filter: IFilter;
+  private readonly observer: MutationObserver;
+  private readonly filter: IFilter;
+  private debounceTimeout: number | null = null;
+  private imageQueue: HTMLImageElement[] = [];
+  private maxConcurrentAnalyses: number = 3;
+  private currentAnalyses: number = 0;
 
-	constructor(filter: IFilter) {
-		this.filter = filter;
-		this.observer = new MutationObserver(this.callback.bind(this));
-	}
+  constructor(filter: IFilter) {
+    this.filter = filter;
+    this.observer = new MutationObserver(this.callback.bind(this));
+  }
 
-	public watch(): void {
-		this.observer.observe(document, DOMWatcher.getConfig());
-	}
+  public watch(): void {
+    this.observer.observe(document, DOMWatcher.getConfig());
+  }
 
-	private async callback(mutationsList: MutationRecord[]) {
-		for (let i = 0; i < mutationsList.length; i++) {
-			const mutation = mutationsList[i];
-			// if (
-			// 	mutation.type === "childList" &&
-			// 	mutation.addedNodes.length > 0
-			// ) {
-			// }
-			await this.filter.analyze(mutation.target);
-		}
-	}
+  public unwatch(): void {
+    this.observer.disconnect();
+  }
 
-	private findAndCheckAllImages(element: Element): void {
-		const images = element.getElementsByTagName("img");
-		// for (let i = 0; i < images.length; i++) {
-		// this.filter.analyze(images[i], false)
-		// }
-	}
+  public rewatch(): void {
+    this.unwatch();
+    this.watch();
+  }
 
-	private checkAttributeMutation(mutation: MutationRecord): void {
-		if ((mutation.target as HTMLImageElement).nodeName === "IMG") {
-			// this.filter.analyze(
-			//   mutation.target as HTMLImageElement,
-			// mutation.attributeName === "src"
-			// )
-		}
-	}
+  private async callback(mutationsList: MutationRecord[]) {
+    mutationsList.forEach(mutation => {
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            this.queueImagesForAnalysis(node as Element);
+          }
+        });
+      } else if (mutation.type === 'attributes') {
+        this.checkAttributeMutation(mutation);
+      }
+    });
 
-	private static getConfig(): MutationObserverInit {
-		return {
-			subtree: true,
-			childList: true,
-			attributes: true,
-			attributeFilter: ["src"]
-		};
-	}
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+    this.debounceTimeout = window.setTimeout(() => this.processImageQueue(), 500);
+  }
+
+  private queueImagesForAnalysis(element: Element): void {
+    const images = element.getElementsByTagName("img");
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+      if (img.className === "YQ4gaf" && !img.hasAttribute('data-analyzed')) {
+        this.imageQueue.push(img);
+        img.setAttribute('data-analyzed', 'queued');
+      }
+    }
+  }
+
+  private checkAttributeMutation(mutation: MutationRecord): void {
+    const target = mutation.target as HTMLImageElement;
+    if (target.nodeName === "IMG" && target.className === "YQ4gaf" && !target.hasAttribute('data-analyzed')) {
+      this.imageQueue.push(target);
+      target.setAttribute('data-analyzed', 'queued');
+    }
+  }
+
+  private async processImageQueue(): Promise<void> {
+    while (this.imageQueue.length > 0 && this.currentAnalyses < this.maxConcurrentAnalyses) {
+      const img = this.imageQueue.shift();
+      if (img) {
+        this.currentAnalyses++;
+        img.setAttribute('data-analyzed', 'true');
+        this.filter.analyze(img).finally(() => {
+          this.currentAnalyses--;
+          this.processImageQueue();
+        });
+      }
+    }
+  }
+
+  private static getConfig(): MutationObserverInit {
+    return {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ["src", "class"]
+    };
+  }
 }

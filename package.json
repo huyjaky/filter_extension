@@ -42,7 +42,10 @@
         "resources": [
           "assets/html/popup-word-container.html",
           "assets/iconn.svg",
-          "assets/bad_words.json"
+          "assets/bad_words.json",
+          "assets/image.jpg",
+          "models/violence-model-v2/*",
+          "models/nsfw-mobilenet/*"
         ],
         "matches": [
           "https://*/*"

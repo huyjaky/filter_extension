@@ -4,7 +4,7 @@ import type Response from "~lib/Response";
 import base64ToArrayBuffer from "../base64toArrayBuffer";
 import loadImage from "../loadImage";
 import Filter from "./Filter";
-import tuna from "data-base64:~assets/images.jpg"
+// import tuna from "data-base64:~assets/logo-itv.png"
 
 export default class ImageFilter extends Filter {
 	private t0: number;
@@ -22,7 +22,7 @@ export default class ImageFilter extends Filter {
 		// Tạo lớp che phủ (overlay) với hình ảnh của bạn
 		const overlay = document.createElement("img");
 		// overlay.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARwAAACxCAMAAAAh3/JWAAAAA1BMVEUbqPBsarW2AAAASElEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIALA8UNAAFusnLHAAAAAElFTkSuQmCC"; // Đường dẫn đến hình ảnh lớp che phủ
-		overlay.src = tuna
+		overlay.src = chrome.runtime.getURL("assets/image.jpg");
 		overlay.style.position = "absolute";
 		overlay.style.top = "0";
 		overlay.style.left = "0";
