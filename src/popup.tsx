@@ -5,7 +5,7 @@ import "~style.css";
 import LoginPage from "./pages/Login";
 import Header from "./components/Header";
 import Options from "./pages/Options";
-import ResultPage from "./pages/Result"
+import ResultPage from "./pages/Result";
 
 function IndexPopup() {
   const [showOptions, setShowOptions] = useState(false);
