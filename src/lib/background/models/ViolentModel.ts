@@ -20,7 +20,7 @@ export default class ViolentModel extends Model {
 		console.log(`Loading ${this.name}...`);
 		const startTime = performance.now();
 		try {
-			this.model = await tf.loadGraphModel(chrome.runtime.getURL("models/violence-model-v2/model.json"));
+			this.model = await tf.loadGraphModel(chrome.runtime.getURL("models/violence-model-mobilenetv3/model.json"));
 			tf.tidy(() => {
 				const prediction = this.model.predict(
 					tf.zeros([1, 3,this.IMG_SIZE, this.IMG_SIZE])
