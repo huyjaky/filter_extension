@@ -28,7 +28,7 @@ const Layer = (props) => {
     console.log(getText())
 
     return (
-        <div style={{ position: 'absolute', backgroundColor: '#FEF8E8', inset: '10px', backgroundImage: 'linear-gradient(to top, #FFE4A4, #FEF8E8)', borderRadius: '10px' }}>
+        <div style={{ position: 'absolute', backgroundColor: '#FEF8E8', inset: '10px', backgroundImage: 'linear-gradient(to top, #FFE4A4, #FEF8E8)', borderRadius: '20px' }}>
             <div style={{ padding: '15px', display: 'flex', gap: '10px', height: '480px' }}>
                 <div style={{ width: '350px' }}>
                     <div>
@@ -68,6 +68,7 @@ const Layer = (props) => {
                             <div style={{ paddingBottom: '5px' }}><Label height={'60px'} width={'90%'} fontPadding={'10px'} backgroundColor={'#A83D00'} border={'2px solid #FFB800'} text={"Ví dụ: " + getText().example[0]} paddingLeft={'10px'} fontSize={'17.5px'} color={'#FFFFFF'} fontWeight={'normal'} /></div>
                             <div style={{ height: '270px', borderRadius: '10px' }}>
                                 {/* <img src="https://www.parents.com/thmb/vRdPsXKhfskKRnIKjvDw1cAKf1I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/550_FAN2012961-66aa200cabd1493e999b8b190fa3830e.jpg" style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '10px' }} /> */}
+                                {/* {getText().img ? <img src={getText().img} style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '10px' }} /> : <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '10px' }} />} */}
                                 {data.img[0].url ? <img src={data.img[0].url} style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '10px' }} /> : <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '10px' }} />}
                             </div>
                         </div>
