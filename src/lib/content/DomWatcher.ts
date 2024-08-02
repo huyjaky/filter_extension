@@ -91,7 +91,7 @@ export default class DOMWatcher implements IDOMWatcher {
       subtree: true,
       childList: true,
       attributes: true,
-      attributeFilter: ["src", "class"]
+      // attributeFilter: ["src", "class"]
     };
   }
 }

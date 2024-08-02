@@ -157,7 +157,7 @@ export default function ResultPopup(props) {
         //     </div>
 
         // </div>
-        <div id="result" style={{ position: "absolute", top: props.mousePos.y, left: props.mousePos.x, height: '500px', width: '600px' }}>
+        <div id="result" style={{ position: "absolute", top: props.mousePos.y - 110, left: props.mousePos.x + 110, height: '500px', width: '600px', zIndex: '9999999999' }}>
             <ResultPage name={props.selectedText} data={wordDict[props.selectedText]} />
         </div>
     );

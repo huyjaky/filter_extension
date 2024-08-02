@@ -8,7 +8,7 @@ import type Request from "~lib/Request";
 import { IType } from "~lib/Request";
 
 export const config: PlasmoCSConfig = {
-	matches: ["https://www.google.com/*"],
+	matches: ["<all_urls>"],
 	all_frames: true,
 	run_at: "document_start",
 };

@@ -50,6 +50,7 @@ export default class ImageFilter extends Filter {
 		overlay.style.left = "0";
 		overlay.style.width = "100%";
 		overlay.style.height = "100%";
+
 		overlay.style.zIndex = "1";
 		overlay.style.pointerEvents = "none";
 	
@@ -60,14 +61,18 @@ export default class ImageFilter extends Filter {
 		container.style.width = `${img.width}px`;
 		container.style.height = `${img.height}px`;
 	
+
 		// Insert container into DOM and add image and overlay
 		img.parentNode?.insertBefore(container, img);
 		container.appendChild(img);
 		container.appendChild(overlay);
 	
+
+
 		// Load image data
 		const imgData = await loadImage(img.src);
 		const req = new Request(IType.IMAGE, imgData, { url: img.src });
+
 	
 		chrome.runtime.sendMessage(req, (res: Response) => {
 			if (!res) {
@@ -77,6 +82,7 @@ export default class ImageFilter extends Filter {
 			const { result } = res;
 			const t1 = performance.now();
 			if (result) {
+
 				// If the image is NSFW, mark it as such
 				// console.log(parentAnchor);
 				console.log({ img }, " is nsfw - ", t1 - this.t0 + " milliseconds.");
@@ -87,9 +93,6 @@ export default class ImageFilter extends Filter {
 			}
 		});
 	}
-	
-	
-	
 	
 
 	private analyzeImg(img: HTMLImageElement) {

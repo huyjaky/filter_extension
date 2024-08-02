@@ -10,35 +10,46 @@
                 "synonyms": [
                     
                 ],
-                "antonyms": []
+                "antonyms": [],
+                
+                "img": [
+                    "https://nhachannuoi.vn/wp-content/uploads/2017/05/chan-nuoi-bo-thit-tai-viet-nam.jpg"
+                ]
             }
         ],
         "verb": [
             {
                 "defination": "hành động di chuyển",
                 "example": [
-                    "Con gián đang bò dưới sàn nhà",
-                    "Trẻ sẽ tập bò trong độ tuổi từ 6 tháng đến 12 tháng."
+                    "Em bé mới biết bò."
                 ],
                 "synonyms": [
-                    "đứng yên"
+                    "Trườn, lê lết"
+                    
                 ],
                 "antonyms": [
-                    "di chuyển"
+                    
+                ],
+                
+                "img": [
+                    "https://res.cloudinary.com/dejdqtcrv/image/upload/v1722226501/filter-extension/Rectangle_10_az2ywg.png"
                 ]
             }
         ],
         "adj": [
             {
                 "defination": "",
-                "example": [],
+                "example": ["Không có"],
                 "synonyms": [],
-                "antonyms": []
+                "antonyms": [],              
+                "img": [
+                    "https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg"
+                ]
             }
         ],
         "img": [
             {
-                "url": "",
+                "url": "https://nhachannuoi.vn/wp-content/uploads/2017/05/chan-nuoi-bo-thit-tai-viet-nam.jpg",
                 "title": ""
             }
         ],
