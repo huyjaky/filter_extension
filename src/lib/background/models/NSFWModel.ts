@@ -29,7 +29,7 @@ export default class NSFWModel extends Model {
 		console.log(`Loading ${this.name}...`);
 		const startTime = performance.now();
 		try {
-			this.model = await tf.loadLayersModel(this.modelPath);
+			this.model = await tf.loadLayersModel(chrome.runtime.getURL("models/nsfw-mobilenet/model.json"));
 			tf.tidy(() => {
 				this.model.predict(
 					tf.zeros([1, this.IMG_SIZE, this.IMG_SIZE, 3])

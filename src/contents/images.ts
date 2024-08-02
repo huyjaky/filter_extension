@@ -35,6 +35,13 @@ const init = async (): Promise<void> => {
 	const domWatcher = new DOMWatcher(imageFilter);
 
 	domWatcher.watch();
+
+	window.addEventListener('scroll', () => {
+		if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+		  domWatcher.rewatch();
+		}
+	  });
+	  
 };
 
 if (window.self === window.top) {
