@@ -12,7 +12,7 @@ export default class DOMWatcher implements IDOMWatcher {
   private readonly filter: IFilter;
   private debounceTimeout: number | null = null;
   private imageQueue: HTMLImageElement[] = [];
-  private maxConcurrentAnalyses: number = 3;
+  private maxConcurrentAnalyses: number = 1;
   private currentAnalyses: number = 0;
 
   constructor(filter: IFilter) {
@@ -49,7 +49,8 @@ export default class DOMWatcher implements IDOMWatcher {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-    this.debounceTimeout = window.setTimeout(() => this.processImageQueue(), 500);
+    this.debounceTimeout = window.setTimeout(() => this.processImageQueue(), 10);
+    // this.processImageQueue()
   }
 
   private queueImagesForAnalysis(element: Element): void {
