@@ -12,7 +12,7 @@ export default class DOMWatcher implements IDOMWatcher {
   private readonly filter: IFilter;
   private debounceTimeout: number | null = null;
   private imageQueue: HTMLImageElement[] = [];
-  private maxConcurrentAnalyses: number = 3;
+  private maxConcurrentAnalyses: number = 1;
   private currentAnalyses: number = 0;
 
   constructor(filter: IFilter) {
@@ -49,14 +49,15 @@ export default class DOMWatcher implements IDOMWatcher {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-    this.debounceTimeout = window.setTimeout(() => this.processImageQueue(), 500);
+    this.debounceTimeout = window.setTimeout(() => this.processImageQueue(), 10);
+    // this.processImageQueue()
   }
 
   private queueImagesForAnalysis(element: Element): void {
     const images = element.getElementsByTagName("img");
     for (let i = 0; i < images.length; i++) {
       const img = images[i];
-      if (!img.hasAttribute('data-analyzed')) {
+      if (img.className === "YQ4gaf" && !img.hasAttribute('data-analyzed')) {
         this.imageQueue.push(img);
         img.setAttribute('data-analyzed', 'queued');
       }
@@ -65,7 +66,7 @@ export default class DOMWatcher implements IDOMWatcher {
 
   private checkAttributeMutation(mutation: MutationRecord): void {
     const target = mutation.target as HTMLImageElement;
-    if (target.nodeName === "IMG" && !target.hasAttribute('data-analyzed')) {
+    if (target.nodeName === "IMG" && target.className === "YQ4gaf" && !target.hasAttribute('data-analyzed')) {
       this.imageQueue.push(target);
       target.setAttribute('data-analyzed', 'queued');
     }
