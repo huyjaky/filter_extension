@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InputField from '../components/input';
 import Button from '../components/Button';
 
-function Login({ onLoginSuccess, onRegisterClick }) {
+function Register({ onLoginSuccess, onBackToLogin }) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
@@ -16,7 +16,7 @@ function Login({ onLoginSuccess, onRegisterClick }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
+    // Handle registration logic here
     onLoginSuccess();
   };
 
@@ -36,11 +36,17 @@ function Login({ onLoginSuccess, onRegisterClick }) {
             value={password}
             onChange={handlePasswordChange}
           />
+          <InputField
+            type="password"
+            placeholder="Nhập lại mật khẩu"
+            value={password}
+            onChange={handlePasswordChange}
+          />
           <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-            <Button type="submit">Đăng nhập</Button>
+            <Button type="submit">Đăng ký</Button>
           </div>
           <div style={{ textAlign: 'center', textDecoration: 'underline' }}>
-            <a href='#' onClick={onRegisterClick} style={{fontSize: '15px', color: '#998861'}}>Tạo mới tài khoản</a>
+            <a href='#' onClick={onBackToLogin} style={{fontSize: '15px', color: '#998861'}}>Quay lại đăng nhập</a>
           </div>
         </div>
       </form>
@@ -48,4 +54,4 @@ function Login({ onLoginSuccess, onRegisterClick }) {
   );
 }
 
-export default Login;
+export default Register;
