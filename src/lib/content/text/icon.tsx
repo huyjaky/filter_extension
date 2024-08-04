@@ -11,7 +11,7 @@ import SinoResultPopup from "./sinowordResult";
 
 export default function IconPopup(props) {
   return (
-      <Icon onClick={() => showResultPopup(props.mousePos, props.selectedText)} id="icon" style={{ position: "absolute", background: "white", top: props.mousePos.y, left: props.mousePos.x }} /> 
+      <Icon onClick={() => showResultPopup(props.mousePos, props.selectedText)} id="icon" style={{ position: "absolute", background: "white", top: props.mousePos.y, left: props.mousePos.x+10, zIndex: '10000000000' }} /> 
   );
 }
 
