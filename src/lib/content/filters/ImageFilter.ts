@@ -29,7 +29,7 @@ export default class ImageFilter extends Filter {
 			div.style.display = parentAnchor.style.display;
 			div.style.width = parentAnchor.style.width;
 			div.style.height = parentAnchor.style.height;
-			div.style.border = "2px solid red";
+			div.style.border = "2px solid black";
 	
 			// Copy any other styles or attributes as needed
 			// For example:
@@ -44,12 +44,13 @@ export default class ImageFilter extends Filter {
 	
 		// Create overlay image
 		const overlay = document.createElement("img");
-		overlay.src = chrome.runtime.getURL("assets/image.jpg");
+		overlay.src = chrome.runtime.getURL("assets/logo-itv.png");
 		overlay.style.position = "absolute";
 		overlay.style.top = "0";
 		overlay.style.left = "0";
 		overlay.style.width = "100%";
 		overlay.style.height = "100%";
+		overlay.style.backgroundColor = '#FFFFFF';
 
 		overlay.style.zIndex = "1";
 		overlay.style.pointerEvents = "none";

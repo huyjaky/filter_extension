@@ -43,7 +43,7 @@
           "assets/html/popup-word-container.html",
           "assets/iconn.svg",
           "assets/bad_words.json",
-          "assets/image.jpg",
+          "assets/logo-itv.png",
           "models/violence-model-v2/*",
           "models/nsfw-mobilenet/*",
           "models/violence-model-mobilenetv3/*"
