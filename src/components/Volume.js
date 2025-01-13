@@ -6,7 +6,7 @@ const Volume = ({width}) => {
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
             <div style={{}}>
-            <img src={BTN} style={{ paddingTop: '5px'}} alt="Button Sounds" />
+            <img src={BTN} style={{ }} width={50} height={50} alt="Button Sounds" />
             </div>
             <input 
                 type="range" 

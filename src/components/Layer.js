@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Label from "../components/Label"
 import Example from "../components/Example"
 import Volume from "../components/Volume"
+import Speak from "../components/Speak"
 
 const Layer = (props) => {
     const { name, data } = props
@@ -59,11 +60,8 @@ const Layer = (props) => {
                         <Example textType={"TRÁI NGHĨA"} TuNgu={getText().antonyms.join(", ")} />
                     </div>
                 </div>
-                <div style={{ width: '320px' }}>
-                    <div style={{ height: '70px' }}>
-                        <Volume />
-                    </div>
-                    <div style={{ paddingTop: '15px' }}>
+                <div style={{ width: '320px' }}>            
+                    <div style={{  }}>
                         <div style={{ height: '365px', border: '3px solid #FFB800', borderRadius: '7px', paddingLeft: '7px', paddingRight: '7px', paddingTop: '5px' }}>
                             <div style={{ paddingBottom: '5px' }}><Label height={'60px'} width={'90%'} fontPadding={'10px'} backgroundColor={'#A83D00'} border={'2px solid #FFB800'} text={"Ví dụ: " + getText().example[0]} paddingLeft={'10px'} fontSize={'17.5px'} color={'#FFFFFF'} fontWeight={'normal'} /></div>
                             <div style={{ height: '270px', borderRadius: '10px' }}>
@@ -72,6 +70,12 @@ const Layer = (props) => {
                                 {/* {data.img[0].url ? <img src={data.img[0].url} style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '10px' }} /> : <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '10px' }} />} */}
                             </div>
                         </div>
+                    </div>
+                    <div style={{ height: '30px' }}>
+                        <Volume />
+                    </div>
+                    <div style={{ height: '30px', paddingTop: '15px', paddingLeft: '10px'}}>
+                        <Speak />
                     </div>
                 </div>
             </div>
