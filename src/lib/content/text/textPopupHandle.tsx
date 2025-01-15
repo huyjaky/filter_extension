@@ -12,8 +12,6 @@ function getSelectedText(): string {
 	return selectedText;
 }
 
-
-
 function popupIcon(event) {
 
   let mousePos = {

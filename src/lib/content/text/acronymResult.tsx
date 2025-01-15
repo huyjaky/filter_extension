@@ -18,7 +18,7 @@ export default function AcronymResultPopup(props) {
                 <div className="word-acronym-itv">
                     <span>{props.selectedText}</span>
                     <div className="voice-acronym-itv">
-                        <img src={iconVoice} alt="Eror img"></img>
+                        <img src={iconVoice} alt="Error img"></img>
                     </div>
                 </div>
                 <div className="logo-acronym-itv">
