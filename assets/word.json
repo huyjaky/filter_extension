@@ -73,6 +73,9 @@
                 ],
                 "antonyms": [
                     ""
+                ],
+                "img": [
+                    "https://drive.google.com/uc?id=1A5O5iqHlzV47nTcrXLWbqDYH3l-cRDqU"
                 ]
             }
         ],
@@ -87,6 +90,8 @@
                 ],
                 "antonyms": [
                     ""
+                ],
+                "img": [
                 ]
             }
         ],
@@ -101,15 +106,18 @@
                 ],
                 "antonyms": [
                     ""
+                ],
+                "img": [
                 ]
             }
         ],
         "img": [
             {
-                "url": "https://drive.google.com/uc?id=1A5O5iqHlzV47nTcrXLWbqDYH3l-cRDqU",
+                "url": "",
                 "title": "Ngôi nhà"
             }
         ],
+        
         "audio": [
             {
                 "url": "",
@@ -123,7 +131,8 @@
                 "defination": "",
                 "example": [],
                 "synonyms": [],
-                "antonyms": []
+                "antonyms": [],
+                "img": []
             }
         ],
         "verb": [
@@ -131,7 +140,8 @@
                 "defination": "",
                 "example": [],
                 "synonyms": [],
-                "antonyms": []
+                "antonyms": [],
+                "image": []
             }
         ],
         "adj": [
@@ -151,6 +161,9 @@
                     "buồn",
                     "bực",
                     "cáu gắt"
+                ],
+                "img": [
+                    "https://drive.google.com/uc?id=1YVnTPSciXJvZHmwWm2tOnj_Njzq4QZiL"
                 ]
             }
         ],
@@ -173,7 +186,8 @@
                 "defination": "",
                 "example": [],
                 "synonyms": [],
-                "antonyms": []
+                "antonyms": [],
+                "img": []
             }
         ],
         "verb": [
@@ -181,7 +195,8 @@
                 "defination": "",
                 "example": [],
                 "synonyms": [],
-                "antonyms": []
+                "antonyms": [],
+                "img": []
             }
         ],
         "adj": [
@@ -202,6 +217,9 @@
                     "háo hức",
                     "hân hoan",
                     "hứng khởi"
+                ],
+                "img": [
+                    "https://drive.google.com/uc?id=11jen6gnI57squcVEm8uxTmq-pfI7H70a"
                 ]
             }
         ],
